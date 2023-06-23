@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, UserComponent, DialogAddUserComponent],
@@ -22,7 +23,8 @@ import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.compon
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
