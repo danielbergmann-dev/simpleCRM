@@ -5,14 +5,21 @@ export class User {
   street: string;
   city: string;
   zipCode: number;
+
+  constructor(obj?: { 
+    firstName?: string; 
+    lastName?: string; 
+    birthDate?: number; 
+    street?: string; 
+    city?: string; 
+    zipCode?: number 
+  }) {
+    this.firstName = obj?.firstName ?? '';
+    this.lastName = obj?.lastName ?? '';
+    this.birthDate = obj?.birthDate ?? 0;
+    this.street = obj?.street ?? '';
+    this.city = obj?.city ?? '';
+    this.zipCode = obj?.zipCode ?? 0;
+  }
 }
 
-constructor(obj?: any) {
-   this.firstName = obj ? obj.firstName : '';  // schnelle if else Abfrage:    ?=wenn :=sonst 
-    this.lastName = obj ? obj.lastName : '';
-    this.birthDate = obj ? obj.birthDate : '';
-    this.street = obj ? obj.street : '';
-    this.city = obj ? obj.city : '';
-    this.zipCode = obj ? obj.zipCode : '';
-
-}
