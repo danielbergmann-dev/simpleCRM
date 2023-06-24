@@ -5,22 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms'; 
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, UserComponent, DialogAddUserComponent],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    UserComponent,
+    DialogAddUserComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +39,7 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
