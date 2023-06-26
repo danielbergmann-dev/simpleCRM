@@ -24,6 +24,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
+
+
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatProgressBarModule,
+    MatCardModule,
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
