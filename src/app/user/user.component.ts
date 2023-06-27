@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
 
-  ngOnInit() {
+  /* ngOnInit() {
     this.firestore
       .collection('users')
       .valueChanges()
@@ -21,7 +21,22 @@ export class UserComponent implements OnInit {
         console.log('received changes from debugger', changes);
         this.allUsers = changes;
       });
+  } */
+
+  ngOnInit() {
+    this.firestore
+      .collection('users')
+      .snapshotChanges()
+      .subscribe((changes: any) => {
+        this.allUsers = changes.map((change: any) => {
+          const data = change.payload.doc.data();
+          const id = change.payload.doc.id;
+          return { id, ...data };
+        });
+        console.log('received changes from debugger', this.allUsers);
+      });
   }
+  
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
