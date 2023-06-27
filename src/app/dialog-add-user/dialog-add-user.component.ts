@@ -18,8 +18,8 @@ export class DialogAddUserComponent {
 /*   firestore: any; */
 
   constructor(
-    private dialogRef: MatDialogRef<DialogAddUserComponent>,
-    private firestore: AngularFirestore
+    public dialogRef: MatDialogRef<DialogAddUserComponent>,
+    public firestore: AngularFirestore
   ) {
     this.birthDate = new Date();
     this.firestore = firestore; // assign the firestore parameter to the firestore property
