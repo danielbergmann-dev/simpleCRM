@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAdressComponent } from '../dialog-edit-adress/dialog-edit-adress.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
+
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
@@ -13,7 +14,7 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 })
 export class UserDetailComponent implements OnInit {
   userId = '';
-  user: User = new User();
+  user!: User;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,7 +42,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   editUserDetail() {
-    this.dialog.open(DialogEditUserComponent);
+    const dialog =  this.dialog.open(DialogEditUserComponent);
+    dialog.componentInstance.user = this.user;
+
   }
 
   editAdressDetail() {
