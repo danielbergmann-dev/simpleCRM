@@ -15,7 +15,7 @@ export class DialogAddUserComponent {
   birthDate: Date;
   loading = false;
 
-/*   firestore: any; */
+  /*   firestore: any; */
 
   constructor(
     public dialogRef: MatDialogRef<DialogAddUserComponent>,
@@ -28,9 +28,9 @@ export class DialogAddUserComponent {
   saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('Add user finished', this.user);
-  
+
     this.loading = true;
-  
+
     this.firestore
       .collection('users')
       .add(this.user.toJSON())
