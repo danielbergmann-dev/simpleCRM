@@ -22,6 +22,6 @@ export class DialogEditAdressComponent {
       .collection('users')
       .doc(this.userId)
       .update(this.user.toJSON());
-      this.dialogRef.close()lack;
+      this.dialogRef.close();
 }
 }
