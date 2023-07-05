@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<div>
+    <label>
+      Stadt:
+      <input #stadtInput type="text">
+    </label>
+    <button (click)="getWetter(stadtInput.value)">Wetter abrufen</button>
+  </div>
+  
+  <div *ngIf="wetterDaten">
+    <h2>Wetter in {{wetterDaten.name}}</h2>
+    <p>Temperatur: {{wetterDaten.main.temp}} °C</p>
+    <p>Feuchtigkeit: {{wetterDaten.main.humidity}} %</p>
+    <p>Windgeschwindigkeit: {{wetterDaten.wind.speed}} m/s</p>
+  </div>
+  
