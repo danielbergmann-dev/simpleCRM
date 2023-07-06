@@ -1,15 +1,19 @@
 <div>
-    <label>
-      Stadt:
-      <input #stadtInput type="text">
-    </label>
-    <button (click)="getWetter(stadtInput.value)">Wetter abrufen</button>
+  <label>
+    Stadt:
+    <input #stadtInput type="text" />
+  </label>
+  <button (click)="getWetter(stadtInput.value)">Wetter abrufen</button>
+</div>
+
+<div *ngIf="wetterDaten">
+  <h2>Wetter in {{ wetterDaten.city.name }}</h2>
+  <div *ngIf="wetterDaten.list.length > 0">
+    <div *ngFor="let item of vorschauDaten">
+      <p>Zeit: {{ item.dt_txt }}</p>
+      <p>Temperatur: {{ item.main.temp }} °C</p>
+      <p>Feuchtigkeit: {{ item.main.humidity }} %</p>
+      <p>Windgeschwindigkeit: {{ item.wind.speed }} m/s</p>
+    </div>
   </div>
-  
-  <div *ngIf="wetterDaten">
-    <h2>Wetter in {{wetterDaten.name}}</h2>
-    <p>Temperatur: {{wetterDaten.main.temp}} °C</p>
-    <p>Feuchtigkeit: {{wetterDaten.main.humidity}} %</p>
-    <p>Windgeschwindigkeit: {{wetterDaten.wind.speed}} m/s</p>
-  </div>
-  
+</div>
