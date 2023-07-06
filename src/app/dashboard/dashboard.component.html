@@ -10,10 +10,22 @@
   <h2>Wetter in {{ wetterDaten.city.name }}</h2>
   <div *ngIf="wetterDaten.list.length > 0">
     <div *ngFor="let item of vorschauDaten">
-      <p>Zeit: {{ item.dt_txt }}</p>
+      <h3>Vorhersage für {{ item.dt_txt }}</h3>
       <p>Temperatur: {{ item.main.temp }} °C</p>
+      <p>Maximale Temperatur: {{ item.main.temp_max }} °C</p>
       <p>Feuchtigkeit: {{ item.main.humidity }} %</p>
       <p>Windgeschwindigkeit: {{ item.wind.speed }} m/s</p>
+      <p>Niederschlag:
+        <span *ngIf="item.rain?.['3h']">{{ item.rain['3h'] }} mm in den letzten 3 Stunden</span>
+        <span *ngIf="!item.rain">Kein Niederschlag</span>
+      </p>
     </div>
   </div>
+  <div *ngIf="currentWetterDaten">
+    <h3>Aktuelles Wetter</h3>
+    <p>Sonnenaufgang: {{ currentWetterDaten.sys.sunrise * 1000 | date:'HH:mm' }}</p>
+    <p>Sonnenuntergang: {{ currentWetterDaten.sys.sunset * 1000 | date:'HH:mm' }}</p>
+  </div>
+  
+  
 </div>
