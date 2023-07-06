@@ -12,6 +12,11 @@ export class WetterService {
 
   constructor(private http: HttpClient) { }
 
+  getWetterByCoords(lat: string, lon: string) {
+    return this.http.get(`${this.forecastApiUrl}lat=${lat}&lon=${lon}&units=metric&appid=${this.apiKey}`);
+  }
+  
+
   getWetter(stadt: string) {
     return this.http.get(this.forecastApiUrl + 'q=' + stadt + '&units=metric&appid=' + this.apiKey);
   }

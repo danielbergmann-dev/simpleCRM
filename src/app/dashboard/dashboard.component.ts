@@ -14,8 +14,30 @@ export class DashboardComponent implements OnInit {
   constructor(private wetterService: WetterService) { }
 
   ngOnInit() {
-    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const latitude = position.coords.latitude.toString();
+        const longitude = position.coords.longitude.toString();
+        this.wetterService.getWetterByCoords(latitude, longitude)
+          .subscribe({
+            next: (data: any) => {
+              this.wetterDaten = data;
+              console.log(data);
+              if(data.list) {
+                this.vorschauDaten = data.list.slice(0, 3);
+              } else {
+                console.error('Keine "list" Eigenschaft im Antwortobjekt');
+              }
+            },
+            error: err => console.error('Fehler beim Abrufen der Wetterdaten:', err),
+            complete: () => console.log('Wetterdaten abgerufen')
+          });
+      });
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }
+  
 
   getWetter(stadt: string) {
     this.wetterService.getWetter(stadt)
