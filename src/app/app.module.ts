@@ -30,6 +30,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { DialogEditAdressComponent } from './dialog-edit-adress/dialog-edit-adress.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslationComponent } from './translation/translation.component';
 
 
 
@@ -43,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     UserDetailComponent,
     DialogEditAdressComponent,
     DialogEditUserComponent,
+    TranslationComponent,
     
     
     

@@ -1,0 +1,24 @@
+<div>
+    <label>
+      Text:
+      <input [(ngModel)]="text" type="text">
+    </label>
+  
+    <label>
+      Zielsprache:
+      <select [(ngModel)]="targetLanguage">
+        <option value="en">Englisch</option>
+        <option value="fr">Französisch</option>
+        <option value="es">Spanisch</option>
+        <!-- Fügen Sie hier weitere Optionen für andere Sprachen hinzu -->
+      </select>
+    </label>
+  
+    <button (click)="translate()">Übersetzen</button>
+  </div>
+  
+  <div *ngIf="translation">
+    <h2>Übersetzung:</h2>
+    <p>{{ translation }}</p>
+  </div>
+  
