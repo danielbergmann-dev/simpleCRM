@@ -1,11 +1,11 @@
 <mat-drawer-container class="mat-drawer-container" autosize>
-  <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
+  <mat-drawer #drawer class="sidenav" [opened]="false" mode="side">
     <div class="logo-container"><img src="assets/img/simpleCRM.png" alt=""></div>
 
     <ul class="menu-item">
-      <li routerLink="/dashboard" routerLinkActive="router-link-active"><mat-icon>sunny</mat-icon>Weather</li>
-      <li routerLink="/user" routerLinkActive="router-link-active"><mat-icon>perm_identity</mat-icon>User</li>
-      <li routerLink="/translation" routerLinkActive="router-link-active"><mat-icon>translate</mat-icon>Translation</li>
+      <li (click)="shouldCloseDrawer() && drawer.close()" routerLink="/dashboard" routerLinkActive="router-link-active"><mat-icon>sunny</mat-icon>Weather</li>
+      <li (click)="shouldCloseDrawer() && drawer.close()" routerLink="/user" routerLinkActive="router-link-active"><mat-icon>perm_identity</mat-icon>User</li>
+      <li (click)="shouldCloseDrawer() && drawer.close()" routerLink="/translation" routerLinkActive="router-link-active"><mat-icon>translate</mat-icon>Translation</li>
     </ul>
   </mat-drawer>
 

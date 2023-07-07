@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'simple-crm';
+
+  shouldCloseDrawer(): boolean {
+    return window.innerWidth <= 680;
+  }
 }
