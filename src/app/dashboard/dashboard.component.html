@@ -1,31 +1,51 @@
 <div>
-  <label>
-    Stadt:
-    <input #stadtInput type="text" />
-  </label>
-  <button (click)="getWetter(stadtInput.value)">Wetter abrufen</button>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Stadt</mat-label>
+      <input matInput #stadtInput type="text" />
+    </mat-form-field>
+    <br />
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="getWetter(stadtInput.value)"
+    >
+      Wetter abrufen
+    </button>
+  </form>
 </div>
 
 <div *ngIf="wetterDaten">
-  <h2>Wetter in {{ wetterDaten.city.name }}</h2>
+  <br />
+  <br />
   <div *ngIf="wetterDaten.list.length > 0">
     <div *ngFor="let item of vorschauDaten">
-      <h3>Vorhersage für {{ item.dt_txt }}</h3>
-      <p>Temperatur: {{ item.main.temp }} °C</p>
-      <p>Maximale Temperatur: {{ item.main.temp_max }} °C</p>
-      <p>Feuchtigkeit: {{ item.main.humidity }} %</p>
+      <h3>
+        Vorhersage für {{ wetterDaten.city.name }} um
+        {{ item.dt_txt | date : "HH:mm" }}
+      </h3>
+      <p>aktuelle Temperatur: {{ item.main.temp }} °C</p>
+      <p>max: {{ item.main.temp_max }} °C</p>
+      <p>min: {{ item.main.temp_min }} °C</p>
+     
       <p>Windgeschwindigkeit: {{ item.wind.speed }} m/s</p>
-      <p>Niederschlag:
-        <span *ngIf="item.rain?.['3h']">{{ item.rain['3h'] }} mm in den letzten 3 Stunden</span>
+      <p>
+        Niederschlag:
+        <span *ngIf="item.rain?.['3h']"
+          >{{ item.rain["3h"] }} mm in den letzten 3 Stunden</span
+        >
         <span *ngIf="!item.rain">Kein Niederschlag</span>
       </p>
     </div>
   </div>
   <div *ngIf="currentWetterDaten">
-    <h3>Aktuelles Wetter</h3>
-    <p>Sonnenaufgang: {{ currentWetterDaten.sys.sunrise * 1000 | date:'HH:mm' }}</p>
-    <p>Sonnenuntergang: {{ currentWetterDaten.sys.sunset * 1000 | date:'HH:mm' }}</p>
+    <p>
+      Sonnenaufgang:
+      {{ currentWetterDaten.sys.sunrise * 1000 | date : "HH:mm" }}
+    </p>
+    <p>
+      Sonnenuntergang:
+      {{ currentWetterDaten.sys.sunset * 1000 | date : "HH:mm" }}
+    </p>
   </div>
-  
-  
-</div>
+
