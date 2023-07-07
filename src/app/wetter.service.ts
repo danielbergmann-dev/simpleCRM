@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,10 @@ export class WetterService {
   getCurrentWetter(stadt: string) {
     return this.http.get(this.currentApiUrl + 'q=' + stadt + '&units=metric&appid=' + this.apiKey);
   }
+
+  getCurrentWetterByCoords(lat: string, lon: string): Observable<any> {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&lang=de`;
+    return this.http.get(url);
+  }
+  
 }

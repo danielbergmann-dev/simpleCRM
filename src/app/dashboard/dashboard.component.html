@@ -10,18 +10,51 @@
       color="primary"
       (click)="getWetter(stadtInput.value)"
     >
-    get weather
+      get weather
     </button>
   </form>
+</div>
+
+<br />
+<br />
+
+<div *ngFor="let item of vorschauDaten; let i = index">
+  <div *ngIf="i === 0">
+    <h3>
+      Current Temp.: {{ item.main.temp }} °C in {{ wetterDaten.city.name }}
+      <img
+        class="weather_icon"
+        src="http://openweathermap.org/img/w/{{ item.weather[0].icon }}.png"
+      />
+      {{ item.weather[0].description }}
+    </h3>
+
+    <p>
+      <span *ngIf="item.rain?.['3h']">
+        {{ item.rain["3h"] }} mm in the last 3 hours
+      </span>
+      <span *ngIf="!item.rain">No Rain</span> <br /><br />
+      <span> Wind {{ item.wind.speed }} m/s</span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="currentWetterDaten">
+  <p>
+    Sonnenaufgang: {{ currentWetterDaten.sys.sunrise * 1000 | date : "HH:mm" }}
+  </p>
+  <p>
+    Sonnenuntergang: {{ currentWetterDaten.sys.sunset * 1000 | date : "HH:mm" }}
+  </p>
 </div>
 
 <div *ngIf="wetterDaten">
   <br />
   <br />
   <div *ngIf="wetterDaten.list.length > 0">
-
     <div style="display: block">
       <canvas
+        class="myChart"
         baseChart
         [datasets]="[
           {
@@ -37,7 +70,7 @@
             backgroundColor: 'rgba(220,53,69,0.5)',
             borderColor: 'rgba(220,53,69,1)',
             tension: 0.4
-          },    
+          },
           {
             data: chartDataRain,
             label: 'Niederschlag',
@@ -52,30 +85,5 @@
       >
       </canvas>
     </div>
-
-    <div *ngFor="let item of vorschauDaten; let i = index">
-      <div *ngIf="i === 0">
-        <h3>
-          Current Temp.: {{ item.main.temp }} °C in {{ wetterDaten.city.name }}, {{ item.weather[0].description }}
-        </h3>
-        <p>
-          <span *ngIf="item.rain?.['3h']">
-            {{ item.rain["3h"] }} mm in the last 3 hours
-          </span>
-          <span *ngIf="!item.rain">No Rain</span> 
-          <span> Wind {{ item.wind.speed }} m/s</span>
-        </p>
-      </div>
-    </div>
-    
-    <div *ngIf="currentWetterDaten">
-      <p>
-        Sonnenaufgang: {{ currentWetterDaten.sys.sunrise * 1000 | date : "HH:mm" }}
-      </p>
-      <p>
-        Sonnenuntergang: {{ currentWetterDaten.sys.sunset * 1000 | date : "HH:mm" }}
-      </p>
-    </div>
-    
   </div>
 </div>

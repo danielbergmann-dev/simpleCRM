@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   constructor(private wetterService: WetterService) {}
 
   ngOnInit() {
-   /*  if (navigator.geolocation) {
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const latitude = position.coords.latitude.toString();
         const longitude = position.coords.longitude.toString();
@@ -39,14 +39,24 @@ export class DashboardComponent implements OnInit {
               this.chartDataMax = this.vorschauDaten.map(
                 (item) => item.main.temp_max
               );
+              this.chartDataMin = this.vorschauDaten.map(
+                (item) => item.main.temp_min
+              );
               this.chartDataRain = this.vorschauDaten.map((item) =>
                 item.rain ? item.rain['3h'] : 0
               );
+
+              this.wetterService.getCurrentWetterByCoords(latitude, longitude).subscribe({
+                next: (data: any) => {
+                  this.currentWetterDaten = data;
+                  console.log(data);
+                },
+              });
             }
           },
         });
       });
-    } */
+    } 
   }
 
   getWetter(stadt: string) {
