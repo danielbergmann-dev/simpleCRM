@@ -31,6 +31,7 @@ import { DialogEditAdressComponent } from './dialog-edit-adress/dialog-edit-adre
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslationComponent } from './translation/translation.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -70,6 +71,7 @@ import { TranslationComponent } from './translation/translation.component';
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
+    NgChartsModule,
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
