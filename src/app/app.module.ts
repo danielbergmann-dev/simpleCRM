@@ -32,6 +32,7 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
 import { HttpClientModule } from '@angular/common/http';
 import { TranslationComponent } from './translation/translation.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ProjektPaketeComponent } from './projekt-pakete/projekt-pakete.component';
 
 
 
@@ -46,6 +47,7 @@ import { NgChartsModule } from 'ng2-charts';
     DialogEditAdressComponent,
     DialogEditUserComponent,
     TranslationComponent,
+    ProjektPaketeComponent,
     
     
     
