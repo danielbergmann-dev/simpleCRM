@@ -2,14 +2,16 @@
   <mat-card-content>
     <table class="user-table">
       <tr>
-        <th>Name</th>
+        <th>Besitzer Pferd</th>
+        <th>Name des Pferdes</th>
         <th>E-Mail</th>
-        <th>City</th>
+        <th>Telefonnummer</th>
       </tr>
       <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]">
         <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.horseName }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.city }}</td>
+        <td>{{ user.phoneNumber }}</td>
       </tr>
     </table>
   </mat-card-content>
