@@ -1,39 +1,40 @@
 <div class="dialog-container">
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-  <h1 mat-dialog-title>Add User</h1>
+  <h1 mat-dialog-title>Neue Einsteller Info</h1>
   <div mat-dialog-content>
     <div>
       <mat-form-field class="mr-16 mt-32" appearance="outline">
-        <mat-label>First Name</mat-label>
+        <mat-label>Name des Pferdes</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.firstName"
+          [(ngModel)]="user.horseName"
           matInput
-          placeholder="First Name"
+          placeholder="Name des Pferdes"
         />
-
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.lastName"
-          matInput
-          placeholder="Last Name"
-        />
-    
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Birth Date</mat-label>
+        <mat-label>Besitzer</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.lastName"
+          matInput
+          placeholder="Besitzer"
+        />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Datum</mat-label>
         <input
           [disabled]="loading"
           [(ngModel)]="birthDate"
           matInput
-          placeholder="Birth Date"
+          placeholder="Datum"
           [matDatepicker]="picker1"
         />
         <mat-datepicker-toggle
@@ -46,59 +47,22 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline" class="full-with">
-        <mat-label>E-Mail</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.email"
-          matInput
-          placeholder="E-Mail"
-        />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Street + House No.</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.street"
-          matInput
-          placeholder="Adress"
-        />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
-      </mat-form-field>
-    </div>
-
-    <div>
       <mat-form-field appearance="outline" class="mr-16">
-        <mat-label>Zip code</mat-label>
+        <mat-label>Einsteller Information</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.zipCode"
+          [(ngModel)]="user.infos"
           matInput
-          placeholder="Zip code"
-        />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>City</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.city"
-          matInput
-          placeholder="City"
+          placeholder="Einsteller Information"
         />
         <!-- <mat-hint>Please enter a name</mat-hint> -->
       </mat-form-field>
     </div>
   </div>
   <div mat-dialog-actions>
-    <button [disabled]="loading" mat-button (click)="dialogRef.close();">Cancel</button>
+    <button [disabled]="loading" mat-button (click)="dialogRef.close()">
+      Cancel
+    </button>
     <button
       [disabled]="loading"
       (click)="saveUser()"

@@ -4,14 +4,17 @@
       <tr>
         <th>Name des Pferdes</th>
         <th>Besitzer Pferd</th>
-        <th>E-Mail</th>
-        <th>Telefonnummer</th>
+        <th>Einsteller Information</th>
+        <th>Datum</th>
       </tr>
-      <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]">
+      <tr *ngFor="let user of allUsers">
+        <!-- [routerLink]="['/user', user.id]" -->
         <td>{{ user.horseName }}</td>
-        <td>{{ user.firstName }} {{ user.lastName }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.lastName }}</td>
+        <!-- {{ user.firstName }}  -->
+        <td>{{ user.infos }}</td>
+        <td>{{ user.birthDate | date:'EEEE, dd/MM/yyyy' }}</td>
+
       </tr>
     </table>
   </mat-card-content>
