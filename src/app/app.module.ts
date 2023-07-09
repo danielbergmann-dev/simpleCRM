@@ -33,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TranslationComponent } from './translation/translation.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ProjektPaketeComponent } from './projekt-pakete/projekt-pakete.component';
+import { WetterComponent } from './wetter/wetter.component';
 
 
 
@@ -48,6 +49,7 @@ import { ProjektPaketeComponent } from './projekt-pakete/projekt-pakete.componen
     DialogEditUserComponent,
     TranslationComponent,
     ProjektPaketeComponent,
+    WetterComponent,
     
     
     
