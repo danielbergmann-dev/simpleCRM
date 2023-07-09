@@ -1,12 +1,12 @@
 .user-detail-header {
-  height: 250px;
+  height: 240px;
   background-color: lemonchiffon;
   
 
   mat-card-content {
     display: flex;
     align-items: flex-end;
-    height: 100vh;
+    height: 22vh;
 
     img {
       width: 64px;
@@ -33,5 +33,10 @@
 .pin-right-upper-corner {
     position: absolute;
     top: 12px;
-    right: 6px;
+    right: 59px;
+}
+.pin-right-upper-corner2 {
+  position: absolute;
+  top: 12px;
+  right: 2px;
 }

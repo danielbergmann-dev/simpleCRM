@@ -37,9 +37,15 @@ export class UserDetailComponent implements OnInit {
       .valueChanges()
       .subscribe((user: any) => {
         console.log('user', user);
+        // Überprüfen, ob birthDate existiert, bevor die Umwandlung durchgeführt wird
+        if (user.birthDate) {
+          user.birthDate = new Date(user.birthDate.seconds * 1000);
+        }
         this.user = new User(user);
       });
   }
+  
+  
 
   editUserDetail() {
     const dialog =  this.dialog.open(DialogEditUserComponent);

@@ -6,6 +6,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { TranslationComponent } from './translation/translation.component';
 import { ProjektPaketeComponent } from './projekt-pakete/projekt-pakete.component';
 import { WetterComponent } from './wetter/wetter.component';
+import { RainComponent } from './rain/rain.component';
 
 const routes: Routes = [
   { path: '', component: WetterComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'translation', component: TranslationComponent },
   { path: 'projekt-pakete', component: ProjektPaketeComponent },
   { path: 'wetter', component: WetterComponent },
+  { path: 'rain', component: RainComponent },
   
 
 ];

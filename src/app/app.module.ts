@@ -36,6 +36,7 @@ import { ProjektPaketeComponent } from './projekt-pakete/projekt-pakete.componen
 import { WetterComponent } from './wetter/wetter.component';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
+import { RainComponent } from './rain/rain.component';
 
 registerLocaleData(localeDe);
 
@@ -51,6 +52,7 @@ registerLocaleData(localeDe);
     TranslationComponent,
     ProjektPaketeComponent,
     WetterComponent,
+    RainComponent,
   ],
   imports: [
     BrowserModule,

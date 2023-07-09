@@ -7,11 +7,10 @@
         <th>Einsteller Information</th>
         <th>Datum</th>
       </tr>
-      <tr *ngFor="let user of allUsers">
-        <!-- [routerLink]="['/user', user.id]" -->
+      <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]">
+       
         <td>{{ user.horseName }}</td>
         <td>{{ user.lastName }}</td>
-        <!-- {{ user.firstName }}  -->
         <td>{{ user.infos }}</td>
         <td>{{ user.birthDate | date:'EEEE, dd/MM/yyyy' }}</td>
 
@@ -25,7 +24,7 @@
   class="add-user-btn"
   mat-fab
   color="primary"
-  matTooltip="Add user"
+  matTooltip="Neue Information hinzufügen"
   matTooltipPosition="above"
 >
   <mat-icon>add</mat-icon>

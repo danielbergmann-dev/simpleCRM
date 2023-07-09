@@ -26,9 +26,10 @@ export class DialogAddUserComponent {
   }
 
   saveUser() {
-    this.user.birthDate = this.birthDate.getTime();
-    console.log('Add user finished', this.user);
 
+   /*  this.user.birthDate = this.birthDate.getTime();
+    console.log('Add user finished', this.user);
+ */
     this.loading = true;
 
     this.firestore

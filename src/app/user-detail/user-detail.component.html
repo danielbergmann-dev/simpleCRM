@@ -3,41 +3,24 @@
     <button
       mat-icon-button
       class="pin-right-upper-corner"
-      [matMenuTriggerFor]="userMenu"
+      (click)="editUserDetail()"
     >
       <mat-icon>more_vert</mat-icon>
     </button>
 
-    <mat-menu #userMenu="matMenu">
-      <button mat-menu-item (click)="editUserDetail()">Edit</button>
-    </mat-menu>
+    <button mat-icon-button color="primary" class="pin-right-upper-corner2" routerLink="/user" routerLinkActive="router-link-active">
+      <mat-icon>home</mat-icon>
+    </button>
 
-    <img src="assets\img\profile.svg" />
+    <img src="assets\img\horse.png" />
     <div class="user-details">
-      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-      <p>{{ user.email }}</p>
+      <td><b>Name des Pferdes:</b> {{ user.horseName }}</td>
+      <br />
+      <td><b>Besitzer Pferd:</b> {{ user.lastName }}</td>
+      <br />
+      <td><b>Einsteller Information:</b> {{ user.infos }}</td>
+      <br />
+      <td><b>Datum:</b> {{ user.birthDate | date : "EEEE, dd/MM/yyyy" }}</td>
     </div>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="mt-32" *ngIf="user">
-  <mat-card-header>
-    <button
-      mat-icon-button
-      class="pin-right-upper-corner"
-      [matMenuTriggerFor]="adressMenu"
-    >
-      <mat-icon>more_vert</mat-icon>
-    </button>
-
-    <mat-menu #adressMenu="matMenu">
-      <button mat-menu-item (click)="editAdressDetail()">Edit</button>
-    </mat-menu>
-
-    <mat-card-title>Adress</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    {{ user.street }} <br />
-    {{ user.zipCode }} {{ user.city }}
   </mat-card-content>
 </mat-card>

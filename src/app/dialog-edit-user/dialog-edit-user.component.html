@@ -3,22 +3,35 @@
   <div mat-dialog-content>
     <div>
       <mat-form-field class="mr-16" appearance="outline">
-        <mat-label>First Name</mat-label>
-        <input [(ngModel)]="user.firstName" matInput placeholder="First Name" />
+        <mat-label>Name des Pferdes</mat-label>
+        <input [(ngModel)]="user.horseName" matInput placeholder="Name des Pferdes" />
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input [(ngModel)]="user.lastName" matInput placeholder="Last Name" />
+        <mat-label>Besitzer Pferd</mat-label>
+        <input [(ngModel)]="user.lastName" matInput placeholder="Besitzer Pferd" />
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline" class="full-with">
-        <mat-label>E-Mail</mat-label>
-        <input [(ngModel)]="user.email" matInput placeholder="E-Mail" />
+        <mat-label>Einsteller Information</mat-label>
+        <input [(ngModel)]="user.infos" matInput placeholder="Einsteller Information" />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Datum</mat-label>
+        <input [(ngModel)]="user.birthDate"  [matDatepicker]="picker1" matInput placeholder="Datum" />
+        <mat-datepicker-toggle
+        matSuffix
+        [for]="picker1"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      
       </mat-form-field>
     </div>
   </div>
