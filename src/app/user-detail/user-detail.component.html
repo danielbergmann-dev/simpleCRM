@@ -2,25 +2,34 @@
   <mat-card-content>
     <button
       mat-icon-button
+      matTooltip="Edit"
       class="pin-right-upper-corner"
       (click)="editUserDetail()"
     >
       <mat-icon>more_vert</mat-icon>
     </button>
 
-    <button mat-icon-button color="primary" class="pin-right-upper-corner2" routerLink="/user" routerLinkActive="router-link-active">
-      <mat-icon>home</mat-icon>
+    <button mat-icon-button matTooltip="Back" color="primary" class="pin-right-upper-corner2" routerLink="/user" routerLinkActive="router-link-active">
+      <mat-icon>replay</mat-icon>
     </button>
 
-    <img src="assets\img\horse.png" />
+    <img src="assets\img\car.png" />
     <div class="user-details">
-      <td><b>Name des Pferdes:</b> {{ user.horseName }}</td>
+      <td><b>User Name:</b> {{ user.firstName }} {{ user.lastName }}</td>
       <br />
-      <td><b>Besitzer Pferd:</b> {{ user.lastName }}</td>
+      <td><b>Street:</b> {{ user.street }}</td>
       <br />
-      <td><b>Einsteller Information:</b> {{ user.infos }}</td>
+      <td><b>City:</b> {{ user.city }}</td>
       <br />
-      <td><b>Datum:</b> {{ user.birthDate | date : "EEEE, dd/MM/yyyy" }}</td>
+      <td><b>Zip Code:</b> {{ user.zipCode }}</td>
+      <br />
+      <td><b>E-Mail:</b> {{ user.email }}</td>
+      <br />
+      <td><b>Phone:</b> {{ user.phoneNumber }}</td>
+      <br />
+      <td><b>Car:</b> {{ user.infos }}</td>
+      <br />
+     <!--  <td><b>Datum:</b> {{ user.birthDate | date : "EEEE, dd/MM/yyyy" }}</td> -->
     </div>
   </mat-card-content>
 </mat-card>

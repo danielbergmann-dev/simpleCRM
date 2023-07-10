@@ -11,6 +11,7 @@ import { User } from 'src/models/user.class';
 export class DialogEditUserComponent {
   @Input() user!: User;
   userId!: string;
+  loading = false;
 
   constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>,
     public firestore: AngularFirestore){}

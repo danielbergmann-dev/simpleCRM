@@ -2,17 +2,24 @@
   <mat-card-content>
     <table class="user-table">
       <tr>
-        <th>Name des Pferdes</th>
-        <th>Besitzer Pferd</th>
-        <th>Einsteller Information</th>
-        <th>Datum</th>
+        <th>User Name</th>
+        <th>E-Mail</th>
+        <th>Phone Number</th>
+        <th>Car</th>
       </tr>
       <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]">
        
-        <td>{{ user.horseName }}</td>
-        <td>{{ user.lastName }}</td>
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNumber }}</td>
         <td>{{ user.infos }}</td>
-        <td>{{ user.birthDate | date:'EEEE, dd/MM/yyyy' }}</td>
+        <td>
+          <button mat-icon-button matTooltip="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+        
+        <!--  <td>{{ user.birthDate | date:'EEEE, dd/MM/yyyy' }}</td> -->
 
       </tr>
     </table>
