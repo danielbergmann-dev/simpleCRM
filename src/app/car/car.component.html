@@ -1,0 +1,42 @@
+<p>"NOTE! This is a free version of the Car API. Not all car models will work. Try: BMW, TOYOTA, FORD, VOLKSWAGEN. Thank you for your understanding."</p>
+<div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Modell</mat-label>
+        <input matInput #modelInput type="text" />
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary" (click)="getCar(modelInput.value)">
+        get car
+      </button>
+    </form>
+  </div>
+  
+  <br />
+  <br />
+  
+  <div *ngIf="carData">
+    <table class="user-table">
+      <tr>
+        <th>Marke</th>
+        <th>Modell</th>
+        <th>Year</th>
+        <th>Class</th>
+        <th>Fuel Type</th>
+        <th>Transmission</th>
+        <th>Cylinders</th>
+        <!-- Fügen Sie hier weitere Spalten für andere Daten hinzu -->
+      </tr>
+      <tr *ngFor="let item of carData">
+        <td>{{item.make}}</td>
+        <td>{{item.model}}</td>
+        <td>{{item.year}}</td>
+        <td>{{item.class}}</td>
+        <td>{{item.fuel_type}}</td>
+        <td>{{item.transmission}}</td>
+        <td>{{item.cylinders}}</td>
+        <!-- Fügen Sie hier weitere Zellen für andere Daten hinzu -->
+      </tr>
+    </table>
+  </div>
+  

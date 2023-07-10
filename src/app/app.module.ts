@@ -37,6 +37,8 @@ import { WetterComponent } from './wetter/wetter.component';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import { RainComponent } from './rain/rain.component';
+import { CarService } from './car.service';
+import { CarComponent } from './car/car.component';
 
 registerLocaleData(localeDe);
 
@@ -53,6 +55,7 @@ registerLocaleData(localeDe);
     ProjektPaketeComponent,
     WetterComponent,
     RainComponent,
+    CarComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,11 +79,12 @@ registerLocaleData(localeDe);
     MatMenuModule,
     HttpClientModule,
     NgChartsModule,
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'de-DE' }],
+  providers: [CarService, { provide: LOCALE_ID, useValue: 'de-DE' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
