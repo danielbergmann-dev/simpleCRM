@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { TranslationComponent } from './translation/translation.component';
-import { ProjektPaketeComponent } from './projekt-pakete/projekt-pakete.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 import { WetterComponent } from './wetter/wetter.component';
 import { RainComponent } from './rain/rain.component';
 import { CarComponent } from './car/car.component';
@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'user/:id', component: UserDetailComponent },
   { path: 'translation', component: TranslationComponent },
-  { path: 'projekt-pakete', component: ProjektPaketeComponent },
+  { path: 'delivery', component: DeliveryComponent },
+  
   { path: 'wetter', component: WetterComponent },
   { path: 'rain', component: RainComponent },
   { path: 'car', component: CarComponent },

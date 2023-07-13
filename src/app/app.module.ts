@@ -32,13 +32,15 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
 import { HttpClientModule } from '@angular/common/http';
 import { TranslationComponent } from './translation/translation.component';
 import { NgChartsModule } from 'ng2-charts';
-import { ProjektPaketeComponent } from './projekt-pakete/projekt-pakete.component';
+import { CommonModule } from '@angular/common';
 import { WetterComponent } from './wetter/wetter.component';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import { RainComponent } from './rain/rain.component';
 import { CarService } from './car.service';
 import { CarComponent } from './car/car.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { DeliverySimulationService } from './delivery-simulation.service';
 
 registerLocaleData(localeDe);
 
@@ -52,10 +54,14 @@ registerLocaleData(localeDe);
     DialogEditAdressComponent,
     DialogEditUserComponent,
     TranslationComponent,
-    ProjektPaketeComponent,
+    DeliveryComponent,
+
+
     WetterComponent,
     RainComponent,
     CarComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -79,12 +85,15 @@ registerLocaleData(localeDe);
     MatMenuModule,
     HttpClientModule,
     NgChartsModule,
+    CommonModule,
+  
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
   ],
-  providers: [CarService, { provide: LOCALE_ID, useValue: 'de-DE' }],
+  providers: [CarService, DeliverySimulationService, { provide: LOCALE_ID, useValue: 'de-DE' }],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
