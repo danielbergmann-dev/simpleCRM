@@ -41,6 +41,7 @@ import { CarService } from './car.service';
 import { CarComponent } from './car/car.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { DeliverySimulationService } from './delivery-simulation.service';
+import { MatSelectModule } from '@angular/material/select'; // Neu hinzugefügt
 
 registerLocaleData(localeDe);
 
@@ -86,6 +87,7 @@ registerLocaleData(localeDe);
     HttpClientModule,
     NgChartsModule,
     CommonModule,
+    MatSelectModule,
   
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),

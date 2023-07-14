@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { TrackingService } from '../tracking.service';
 
 @Component({
   selector: 'app-user',
@@ -10,8 +11,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class UserComponent implements OnInit {
   allUsers: any = [];
+  estimatedDeliveryDate!: Date;
+  randomOrderDate!: Date;
+  deliveryStatus!: string;
 
-  constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
+  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private trackingService: TrackingService) {}
 
   /* ngOnInit() {
     this.firestore
@@ -24,6 +28,7 @@ export class UserComponent implements OnInit {
   } */
 
   ngOnInit() {
+    
     this.firestore
       .collection('users')
       .snapshotChanges()
@@ -38,7 +43,26 @@ export class UserComponent implements OnInit {
           return { id, ...data };
         });
         console.log('received changes from debugger', this.allUsers);
+        
       });
+           
+  }
+
+  toJSON() {
+    return {
+      // ...
+      randomOrderDate: this.randomOrderDate.getTime(), // Speichern Sie das Datum als Timestamp
+      estimatedDeliveryDate: this.estimatedDeliveryDate.getTime(), // Speichern Sie das Datum als Timestamp
+      deliveryStatus: this.deliveryStatus,
+    };
+  }
+
+
+  simulateAllUsers() {
+    this.allUsers.forEach((user: { id: string; }) => {
+      this.trackingService.simulateTracking(user.id);
+    });
+    
   }
   
   
@@ -48,3 +72,8 @@ export class UserComponent implements OnInit {
     this.dialog.open(DialogAddUserComponent);
   }
 }
+function simulateAllUsers() {
+  throw new Error('Function not implemented.');
+}
+
+

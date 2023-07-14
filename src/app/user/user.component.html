@@ -1,32 +1,45 @@
+<!-- user.component.html -->
+
 <mat-card>
   <mat-card-content>
     <table class="user-table">
       <tr>
         <th>User Name</th>
         <th>E-Mail</th>
-        <th>Phone Number</th>
-        <th>Car</th>
+        <!--   <th>Phone Number</th> -->
+        <th>Car Modell</th>
+        <th>Ordered Date</th>
+        <th>Expected Delivery Date</th>
+        <th>Current Delivery Status</th>
+        <th>Edit </th>
       </tr>
       <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]">
-       
         <td>{{ user.firstName }} {{ user.lastName }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.phoneNumber }}</td>
-        <td><button [routerLink]="['/car']" mat-icon-button matTooltip="Edit">
-          <mat-icon><img src="assets\img\car.png" alt=""></mat-icon>
-        </button></td>
+        <td>{{ user.carModell }}
+          <button [routerLink]="['/car']" mat-icon-button matTooltip="Car Infos">
+            <mat-icon><img src="assets\img\car.png" alt="" /></mat-icon>
+          </button>
+        </td>
+        <td>{{ user.randomOrderDate.toDate() | date:'dd.MM.yyyy, HH:mm' }}</td>
+        <td>{{ user.estimatedDeliveryDate.toDate() | date:'dd.MM.yyyy, HH:mm' }}</td>
+        <td [ngStyle]="{'background-color': user.deliveryStatusColor}">{{ user.deliveryStatus.status }}</td>
+
+        
+
         <td>
           <button mat-icon-button matTooltip="Edit">
             <mat-icon>edit</mat-icon>
           </button>
         </td>
-        
-        <!--  <td>{{ user.birthDate | date:'EEEE, dd/MM/yyyy' }}</td> -->
-
       </tr>
     </table>
   </mat-card-content>
 </mat-card>
+
+<button (click)="simulateAllUsers()" class="simulate-btn" mat-raised-button color="primary">
+  Simulate Delivery Status
+</button>
 
 <button
   (click)="openDialog()"

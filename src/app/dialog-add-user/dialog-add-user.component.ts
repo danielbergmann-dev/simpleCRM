@@ -3,6 +3,11 @@ import { Component, inject } from '@angular/core';
 /* import { Firestore, collection, collectionData } from '@angular/fire/firestore'; */
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
+
+
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -19,17 +24,15 @@ export class DialogAddUserComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogAddUserComponent>,
-    public firestore: AngularFirestore
+    public firestore: AngularFirestore,
+
   ) {
     this.birthDate = new Date();
     this.firestore = firestore; // assign the firestore parameter to the firestore property
   }
 
   saveUser() {
-
-   /*  this.user.birthDate = this.birthDate.getTime();
-    console.log('Add user finished', this.user);
- */
+    
     this.loading = true;
 
     this.firestore
@@ -40,5 +43,6 @@ export class DialogAddUserComponent {
         console.log(res);
         this.dialogRef.close(); // close the dialog
       });
+      
   }
 }

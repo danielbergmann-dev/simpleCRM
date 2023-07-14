@@ -6,9 +6,13 @@ export class User {
   street: string;
   city: string;
   zipCode: number;
-  horseName: string;
+  carModell: string;
   phoneNumber: number;
   infos: string;
+  productInfo: string; // Neu hinzugefügt
+  estimatedDeliveryDate: number; // Neu hinzugefügt
+  deliveryStatus: string; // Neu hinzugefügt
+  deliveryStatusColor: string; // Neu hinzugefügt
 
   constructor(obj?: { 
     firstName?: string; 
@@ -18,9 +22,13 @@ export class User {
     street?: string; 
     city?: string; 
     zipCode?: number;
-    horseName?: string; 
+    carModell?: string; 
     phoneNumber?: number;
     infos?: string;
+    productInfo?: string; // Neu hinzugefügt
+    estimatedDeliveryDate?: number; // Neu hinzugefügt
+    deliveryStatus?: string; // Neu hinzugefügt
+    deliveryStatusColor?: string; // Neu hinzugefügt
 
   }) {
     this.firstName = obj?.firstName ?? '';
@@ -30,9 +38,13 @@ export class User {
     this.street = obj?.street ?? '';
     this.city = obj?.city ?? '';
     this.zipCode = obj?.zipCode ?? 0;
-    this.horseName = obj?.horseName ?? '';
+    this.carModell = obj?.carModell ?? '';
     this.phoneNumber = obj?.phoneNumber ?? 0;
     this.infos = obj?.infos ?? '';
+    this.productInfo = obj?.productInfo ?? ''; // Neu hinzugefügt
+    this.estimatedDeliveryDate = obj?.estimatedDeliveryDate ?? 0; // Neu hinzugefügt
+    this.deliveryStatus = obj?.deliveryStatus ?? ''; // Neu hinzugefügt
+    this.deliveryStatusColor = obj?.deliveryStatusColor ?? '';
   }
 
   public toJSON(){
@@ -44,12 +56,14 @@ export class User {
       street: this.street,
       city: this.city,
       zipCode: this.zipCode,
-      horseName: this.horseName,
+      carModell: this.carModell,
       phoneNumber: this.phoneNumber,
-      infos: this.infos
-      
+      infos: this.infos,
+      productInfo: this.productInfo, // Neu hinzugefügt
+      estimatedDeliveryDate: this.estimatedDeliveryDate, // Neu hinzugefügt
+      deliveryStatus: this.deliveryStatus, // Neu hinzugefügt
+      deliveryStatusColor: this.deliveryStatusColor // Neu hinzugefügt
     }
   }
 
 }
-

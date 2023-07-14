@@ -13,89 +13,41 @@
         />
       </mat-form-field>
     </div>
+    </div>
+    
+   
 
-    <div>
-      <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Last Name</mat-label>
+ <!--    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>Ordered Date</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.lastName"
+          [(ngModel)]="user.randomOrderDate"
           matInput
-          placeholder="Last Name"
+          matDatepicker="picker1"
+          placeholder="Ordered Date"
         />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
     </div>
-
+    
     <div>
       <mat-form-field appearance="outline" class="mr-16">
-        <mat-label>Street</mat-label>
+        <mat-label>Expected Delivery Date</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.street"
+          [(ngModel)]="user.estimatedDeliveryDate"
           matInput
-          placeholder="Street"
+          matDatepicker="picker2"
+          placeholder="Expected Delivery Date"
         />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
-    </div>
+    </div> -->
+    
 
-    <div>
-      <mat-form-field appearance="outline" class="mr-16">
-        <mat-label>City</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.city"
-          matInput
-          placeholder="City"
-        />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline" class="mr-16">
-        <mat-label>Zip Code</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.zipCode"
-          matInput
-          placeholder="Zip Code"
-        />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline" class="mr-16">
-        <mat-label>E-Mail</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.email"
-          matInput
-          placeholder="E-Mail"
-        />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline" class="mr-16">
-        <mat-label>Phone</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.phoneNumber"
-          matInput
-          placeholder="Phone Number"
-        />
-        <!-- <mat-hint>Please enter a name</mat-hint> -->
-      </mat-form-field>
-    </div>
-  </div>
-
-  <!--
-     
-    -->
 
   <div mat-dialog-actions>
     <button [disabled]="loading" mat-button (click)="dialogRef.close()">
