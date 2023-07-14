@@ -12,7 +12,9 @@
         <td>{{ user.firstName }} {{ user.lastName }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.phoneNumber }}</td>
-        <td>{{ user.infos }}</td>
+        <td><button [routerLink]="['/car']" mat-icon-button matTooltip="Edit">
+          <mat-icon><img src="assets\img\car.png" alt=""></mat-icon>
+        </button></td>
         <td>
           <button mat-icon-button matTooltip="Edit">
             <mat-icon>edit</mat-icon>
