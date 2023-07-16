@@ -1,15 +1,30 @@
 <mat-card>
   <mat-card-content>
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="searchText"
+        placeholder="Search for user"
+      />
+    </mat-form-field>
     <table class="user-table">
       <tr>
         <th>Name</th>
-        <th>E-Mail</th>
-        <th>City</th>
+        <th>Flugnummer</th>
+        <th>Abflugzeit</th>
+        <th>Ankunftszeit</th>
+        <th>Flugziel</th>
+        <th>Flugstatus</th>
       </tr>
-      <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]">
+      <!-- <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]"> -->
+        <tr *ngFor="let user of search()" [routerLink]="['/user', user.id]">
+
         <td>{{ user.firstName }} {{ user.lastName }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.city }}</td>
+        <td>{{ user.flightNumber }}</td>
+        <td>{{ user.departureTime | date:'shortTime' }}</td>
+        <td>{{ user.arrivalTime | date:'shortTime' }}</td>
+        <td>{{ user.flightDestination }}</td>
+        <td>{{ user.flightStatus }}</td>
       </tr>
     </table>
   </mat-card-content>

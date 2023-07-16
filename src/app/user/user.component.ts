@@ -10,6 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class UserComponent implements OnInit {
   allUsers: any = [];
+  searchText: string = '';
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
 
@@ -41,4 +42,16 @@ export class UserComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
   }
+
+  search() {
+    if (!this.searchText) {
+      return this.allUsers;
+    }
+    
+    return this.allUsers.filter((user: { firstName: string; lastName: string; }) =>
+      user.firstName.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      user.lastName.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+  
 }
