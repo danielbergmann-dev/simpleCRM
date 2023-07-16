@@ -26,6 +26,8 @@ export class DialogAddUserComponent {
   }
 
   saveUser() {
+    this.user.departureTime = this.user.departureTime;
+    this.user.arrivalTime = this.user.arrivalTime;
     this.user.birthDate = this.birthDate.getTime();
     console.log('Add user finished', this.user);
 

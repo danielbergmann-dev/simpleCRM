@@ -11,6 +11,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class UserComponent implements OnInit {
   allUsers: any = [];
   searchText: string = '';
+  filteredUsers: any = [];
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
 
@@ -34,6 +35,7 @@ export class UserComponent implements OnInit {
           const id = change.payload.doc.id;
           return { id, ...data };
         });
+        this.filteredUsers = [...this.allUsers]; // copy array
         console.log('received changes from debugger', this.allUsers);
       });
   }
@@ -41,6 +43,19 @@ export class UserComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
+  }
+
+  filterUsers() {
+    if (!this.searchText) {
+      this.filteredUsers = this.allUsers;
+    } else {
+      this.filteredUsers = this.allUsers.filter((user: any) => {
+        return Object.values(user)
+          .join(' ')
+          .toLowerCase()
+          .includes(this.searchText.toLowerCase());
+      });
+    }
   }
 
   search() {

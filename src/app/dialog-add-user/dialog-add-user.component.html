@@ -96,6 +96,69 @@
         <!-- <mat-hint>Please enter a name</mat-hint> -->
       </mat-form-field>
     </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Flight Number</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.flightNumber"
+          matInput
+          placeholder="Flight Number"
+        />
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Departure Time</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.departureTime"
+          matInput
+          placeholder="Departure Time"
+          type="time"
+        />
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Arrival Time</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.arrivalTime"
+          matInput
+          placeholder="Arrival Time"
+          type="time"
+        />
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Flight Destination</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.flightDestination"
+          matInput
+          placeholder="Flight Destination"
+        />
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Flight Status</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.flightStatus"
+          matInput
+          placeholder="Flight Status"
+        />
+      </mat-form-field>
+    </div>
+
   </div>
   <div mat-dialog-actions>
     <button [disabled]="loading" mat-button (click)="dialogRef.close();">Cancel</button>
