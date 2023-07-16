@@ -1,9 +1,21 @@
+
+
 <mat-card>
   <mat-card-content>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Search</mat-label>
       <input matInput [(ngModel)]="searchText" (input)="filterUsers()">
     </mat-form-field>
+    <button
+  (click)="openDialog()"
+  class="add-user-btn"
+  mat-raised-button
+  color="primary"
+  matTooltip="Add user"
+  matTooltipPosition="above"
+>
+  <mat-icon>person_add</mat-icon>
+</button>
     
     <table class="user-table">
       <tr>
@@ -32,13 +44,4 @@
   </mat-card-content>
 </mat-card>
 
-<button
-  (click)="openDialog()"
-  class="add-user-btn"
-  mat-fab
-  color="primary"
-  matTooltip="Add user"
-  matTooltipPosition="above"
->
-  <mat-icon>add</mat-icon>
-</button>
+
