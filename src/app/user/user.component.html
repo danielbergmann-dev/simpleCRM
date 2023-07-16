@@ -13,6 +13,7 @@
         <th>Ankunftszeit</th>
         <th>Flugziel</th>
         <th>Flugstatus</th>
+        <th></th>
       </tr>
       <!-- <tr *ngFor="let user of allUsers" [routerLink]="['/user', user.id]"> -->
         <tr *ngFor="let user of filteredUsers" [routerLink]="['/user', user.id]">
@@ -23,7 +24,10 @@
         <td>{{ user.arrivalTime }}</td>        
         <td>{{ user.flightDestination }}</td>
         <td>{{ user.flightStatus }}</td>
-      </tr>
+        <td>
+          <button mat-button (click)="deleteUser(user.id)">X</button>
+        </td>
+      
     </table>
   </mat-card-content>
 </mat-card>

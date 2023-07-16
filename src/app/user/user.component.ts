@@ -68,5 +68,18 @@ export class UserComponent implements OnInit {
       user.lastName.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
+
+  deleteUser(userId: string) {
+    this.firestore
+      .collection('users')
+      .doc(userId)
+      .delete()
+      .then(() => {
+        console.log('User successfully deleted!');
+      })
+      .catch((error) => {
+        console.error('Error removing user: ', error);
+      });
+  }
   
 }
