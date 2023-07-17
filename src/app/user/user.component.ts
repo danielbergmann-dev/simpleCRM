@@ -111,12 +111,35 @@ export class UserComponent implements OnInit {
   }
 
   createUser() {
-    for (let i = 0; i < 15; i++) {
+    // Überprüfen Sie, ob bereits Nutzer vorhanden sind.
+    if (this.allUsers.length > 0) {
+      console.log('Users already exist. No new users created.');
+      return;
+    }
+  
+    for (let i = 0; i < 5; i++) {
+      let firstName = this.getRandomElement(this.firstNames);
+      let lastName = this.getRandomElement(this.lastNames);
+  
+      // Überprüfen Sie, ob ein Benutzer mit demselben Namen bereits existiert.
+      let duplicateUser = this.allUsers.find((user: { firstName: string; lastName: string; }) => user.firstName === firstName && user.lastName === lastName);
+  
+      // Wenn ein Duplikat gefunden wird, generieren Sie einen neuen Namen.
+      while (duplicateUser) {
+        console.log('User with the same name already exists. Generating a new name.');
+        firstName = this.getRandomElement(this.firstNames);
+        lastName = this.getRandomElement(this.lastNames);
+        duplicateUser = this.allUsers.find((user: { firstName: string; lastName: string; }) => user.firstName === firstName && user.lastName === lastName);
+      }
+  
       const departureDate = new Date();
-      const arrivalDate = new Date(departureDate.getTime() + 12 * 60 * 60 * 1000); // Add 12 hours
+      departureDate.setHours(departureDate.getHours() + 2*23*12 + Math.floor(Math.random() * 3)); // Add 2 to 4 hours
+      const arrivalDate = new Date(departureDate.getTime());
+      arrivalDate.setHours(arrivalDate.getHours() + 10*34*13 + Math.floor(Math.random() * 3)); // Add 10 to 12 hours
+  
       const user = {
-        firstName: this.getRandomElement(this.firstNames),
-        lastName: this.getRandomElement(this.lastNames),
+        firstName: firstName,
+        lastName: lastName,
         flightNumber: `FL${Math.floor(Math.random() * 10000)}`, // Generieren Sie eine zufällige Flugnummer
         departureTime: departureDate.toLocaleTimeString('de-DE', { hour12: false }), // Generate a random departure time
         arrivalTime: arrivalDate.toLocaleTimeString('de-DE', { hour12: false }), // Generate a random arrival time
@@ -135,4 +158,6 @@ export class UserComponent implements OnInit {
         });
     }
   }
+  
+  
 }
