@@ -60,7 +60,8 @@ export class UserComponent implements OnInit {
           return { id, ...data };
         });
         this.filteredUsers = [...this.allUsers]; // copy array
-        console.log('received changes from debugger', this.allUsers);
+        console.log('User objects: ', this.allUsers);
+
       });
 
     this.createUser();
@@ -103,20 +104,7 @@ export class UserComponent implements OnInit {
     );
   }
 
-  deleteUser(userId: string) {
-    this.firestore
-      .collection('users')
-      .doc(userId)
-      .delete()
-      .then(() => {
-        console.log('User successfully deleted!');
-      })
-      .catch((error) => {
-        console.error('Error removing user: ', error);
-      });
-  }
-
-  getRandomElement(array: string[]) {
+    getRandomElement(array: string[]) {
     return array[Math.floor(Math.random() * array.length)];
   }
 
@@ -168,6 +156,24 @@ export class UserComponent implements OnInit {
         });
     }
   }
+
+  deleteUser(userId: string) {
+    this.firestore
+      .collection('users')
+      .doc(userId)
+      .delete()
+      .then(() => {
+        console.log('Deleting user with ID: ', userId);
+        // Aktualisieren Sie die Benutzerliste nach dem Löschen
+        this.allUsers = this.allUsers.filter((user: any) => user.id !== userId);
+        this.filteredUsers = this.filteredUsers.filter((user: any) => user.id !== userId);
+      })
+      .catch((error) => {
+        console.error('Error removing user: ', error);
+      });
+  }
+  
+  
   
   
 }
