@@ -34,14 +34,15 @@
         <td>{{ user.departureTime }}</td>
         <td>{{ user.arrivalTime }}</td>
         <td>{{ user.flightDestination }}</td>
-        <td>{{ user.flightStatus }}</td>
+        <td [ngStyle]="{'color': flightStatusColors[user.flightStatus]}">{{ user.flightStatus }}</td>
+
         <td>
           <button
           [routerLink]="['/user', user.id]"
           mat-icon-button
           color="black"
           >
-          <mat-icon>more_vert</mat-icon>
+          <mat-icon>edit_note</mat-icon>
         </button>
           <button
           (click)="deleteUser(user.id)"
