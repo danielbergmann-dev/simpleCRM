@@ -1,1 +1,9 @@
-<p>dashboard works!</p>
+<div *ngFor="let status of flightStatuses | keyvalue">
+    <mat-card>
+      <mat-card-content>
+        <p>Status: {{ status.key }}</p>
+        <p>Count: {{ status.value }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

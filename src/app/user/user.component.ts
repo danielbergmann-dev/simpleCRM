@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -10,6 +11,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class UserComponent implements OnInit {
   allUsers: any = [];
+  userId: string = '';
   searchText: string = '';
   filteredUsers: any = [];
   firstNames = [
@@ -45,7 +47,7 @@ export class UserComponent implements OnInit {
 
     
 
-  constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
+  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private userService: UserService) {}
 
   ngOnInit() {
     this.firestore
@@ -62,6 +64,14 @@ export class UserComponent implements OnInit {
       });
 
     this.createUser();
+
+    this.userService.getUsers().subscribe((users: any[]) => {
+      this.allUsers = users;
+      this.filteredUsers = [...this.allUsers]; // copy array
+      console.log('received changes from debugger', this.allUsers);
+    });
+    
+
   }
 
   openDialog() {
