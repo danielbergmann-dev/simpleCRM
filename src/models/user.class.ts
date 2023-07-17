@@ -7,11 +7,15 @@ export class User {
   street: string;
   city: string;
   zipCode: number;
-  flightNumber: string;
-  departureTime: any; // Zeitstempel
-  arrivalTime: any; // Zeitstempel
-  flightDestination: string;
-  flightStatus: string;
+  checkInDate: any; // Zeitstempel
+  checkOutDate: any; // Zeitstempel
+  roomNumber: string;
+  stays: number;
+  preferences: string;
+  reviews: string;
+  paymentInfo: string;
+  reservationStatus: string;
+  communicationHistory: string;
 
   constructor(obj?: { 
     firstName?: string; 
@@ -22,11 +26,15 @@ export class User {
     street?: string; 
     city?: string; 
     zipCode?: number;
-    flightNumber?: string;
-    departureTime?: any; // Zeitstempel
-    arrivalTime?: any; // Zeitstempel
-    flightDestination?: string;
-    flightStatus?: string;
+    checkInDate?: any; // Zeitstempel
+    checkOutDate?: any; // Zeitstempel
+    roomNumber?: string;
+    stays?: number;
+    preferences?: string;
+    reviews?: string;
+    paymentInfo?: string;
+    reservationStatus?: string;
+    communicationHistory?: string;
 
   }) {
     this.firstName = obj?.firstName ?? '';
@@ -37,12 +45,15 @@ export class User {
     this.street = obj?.street ?? '';
     this.city = obj?.city ?? '';
     this.zipCode = obj?.zipCode ?? 0;
-    this.flightNumber = obj?.flightNumber ?? '';
-    this.departureTime = obj?.departureTime ?? 0;
-    this.arrivalTime = obj?.arrivalTime ?? 0;
-    this.flightDestination = obj?.flightDestination ?? '';
-    this.flightStatus = obj?.flightStatus ?? '';
-
+    this.checkInDate = obj?.checkInDate ?? 0;
+    this.checkOutDate = obj?.checkOutDate ?? 0;
+    this.roomNumber = obj?.roomNumber ?? '';
+    this.stays = obj?.stays ?? 0;
+    this.preferences = obj?.preferences ?? '';
+    this.reviews = obj?.reviews ?? '';
+    this.paymentInfo = obj?.paymentInfo ?? '';
+    this.reservationStatus = obj?.reservationStatus ?? '';
+    this.communicationHistory = obj?.communicationHistory ?? '';
   }
 
   public toJSON(){
@@ -55,14 +66,15 @@ export class User {
       street: this.street,
       city: this.city,
       zipCode: this.zipCode,
-      flightNumber: this.flightNumber,
-      departureTime: this.departureTime,
-      arrivalTime: this.arrivalTime,
-      flightDestination: this.flightDestination,
-      flightStatus: this.flightStatus,
-
+      checkInDate: this.checkInDate,
+      checkOutDate: this.checkOutDate,
+      roomNumber: this.roomNumber,
+      stays: this.stays,
+      preferences: this.preferences,
+      reviews: this.reviews,
+      paymentInfo: this.paymentInfo,
+      reservationStatus: this.reservationStatus,
+      communicationHistory: this.communicationHistory,
     }
   }
-
 }
-

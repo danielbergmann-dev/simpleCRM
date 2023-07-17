@@ -13,6 +13,8 @@ export class DialogAddUserComponent {
   /*   firestore: Firestore = inject(Firestore); */
   user = new User();
   birthDate: Date;
+  checkInDate: Date;
+  checkOutDate: Date;
   loading = false;
 
   /*   firestore: any; */
@@ -22,12 +24,14 @@ export class DialogAddUserComponent {
     public firestore: AngularFirestore
   ) {
     this.birthDate = new Date();
+    this.checkInDate = new Date();
+    this.checkOutDate = new Date();
     this.firestore = firestore; // assign the firestore parameter to the firestore property
   }
 
   saveUser() {
-    this.user.departureTime = this.user.departureTime;
-    this.user.arrivalTime = this.user.arrivalTime;
+    this.user.checkInDate = this.checkInDate.getTime();
+    this.user.checkOutDate = this.checkOutDate.getTime();
     this.user.birthDate = this.birthDate.getTime();
     console.log('Add user finished', this.user);
 

@@ -15,43 +15,51 @@
       <mat-icon>person_add</mat-icon>
     </button>
 
-    <table class="user-table">
-      <tr>
-        <th>Name</th>
-        <th>Flugnummer</th>
-        <th>Abflugzeit</th>
-        <th>Ankunftszeit</th>
-        <th>Flugziel</th>
-        <th>Flugstatus</th>
-        <th></th>
-      </tr>
+<table class="user-table">
+  <tr>
+    <th>Name</th>
+    <th>Kontakt</th>
+    <th>Check-in Datum</th>
+    <th>Check-out Datum</th>
+    <th>Zimmernummer</th>
+    <th>Aufenthalte</th>
+    <th>Präferenzen</th>
+    <th>Bewertungen</th>
+    <th>Bezahlungsinformationen</th>
+    <th>Reservierungsstatus</th>
+    <th>Kommunikationsverlauf</th>
+    <th></th>
+  </tr>
 
-      <tr *ngFor="let user of filteredUsers">
-        <!-- [routerLink]="['/user', user.id]" -->
+  <tr *ngFor="let user of filteredUsers">
+    <!-- [routerLink]="['/user', user.id]" -->
 
-        <td>{{ user.firstName }} {{ user.lastName }}</td>
-        <td>{{ user.flightNumber }}</td>
-        <td>{{ user.departureTime }}</td>
-        <td>{{ user.arrivalTime }}</td>
-        <td>{{ user.flightDestination }}</td>
-        <td>{{ user.flightStatus }}</td>
-        <td>
-          <button
-          [routerLink]="['/user', user.id]"
-          mat-icon-button
-          color="black"
-          >
-          <mat-icon>more_vert</mat-icon>
-        </button>
-          <button
-          (click)="deleteUser(user.id)"
-          mat-icon-button
-          color="warn"
-          >
-          <mat-icon>delete</mat-icon>
-        </button>
-        </td>
-      </tr>
-    </table>
-  </mat-card-content>
-</mat-card>
+    <td>{{ user.firstName }} {{ user.lastName }}</td>
+    <td>{{ user.contact }}</td>
+    <td>{{ user.checkInDate }}</td>
+    <td>{{ user.checkOutDate }}</td>
+    <td>{{ user.roomNumber }}</td>
+    <td>{{ user.stays }}</td>
+    <td>{{ user.preferences }}</td>
+    <td>{{ user.reviews }}</td>
+    <td>{{ user.paymentInfo }}</td>
+    <td>{{ user.reservationStatus }}</td>
+    <td>{{ user.communicationHistory }}</td>
+    <td>
+      <button
+      [routerLink]="['/user', user.id]"
+      mat-icon-button
+      color="black"
+      >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+      <button
+      (click)="deleteUser(user.id)"
+      mat-icon-button
+      color="warn"
+      >
+      <mat-icon>delete</mat-icon>
+    </button>
+    </td>
+  </tr>
+</table>

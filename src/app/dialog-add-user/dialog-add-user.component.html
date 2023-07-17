@@ -110,68 +110,128 @@
       </mat-form-field>
     </div>
 
+   
+
     <div>
       <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Flight Number</mat-label>
+        <mat-label>Check-in Date</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.flightNumber"
+          [(ngModel)]="user.checkInDate"
           matInput
-          placeholder="Flight Number"
+          placeholder="Check-in Date"
+          [matDatepicker]="picker2"
         />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
     </div>
-  
+
     <div>
       <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Departure Time</mat-label>
+        <mat-label>Check-out Date</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.departureTime"
+          [(ngModel)]="user.checkOutDate"
           matInput
-          placeholder="Departure Time"
-          type="time"
+          placeholder="Check-out Date"
+          [matDatepicker]="picker2"
         />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
     </div>
-  
+
     <div>
       <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Arrival Time</mat-label>
+        <mat-label>Room Number</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.arrivalTime"
+          [(ngModel)]="user.roomNumber"
           matInput
-          placeholder="Arrival Time"
-          type="time"
-        />
-      </mat-form-field>
-    </div>
-  
-    <div>
-      <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Flight Destination</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.flightDestination"
-          matInput
-          placeholder="Flight Destination"
-        />
-      </mat-form-field>
-    </div>
-  
-    <div>
-      <mat-form-field appearance="outline" class="full-with">
-        <mat-label>Flight Status</mat-label>
-        <input
-          [disabled]="loading"
-          [(ngModel)]="user.flightStatus"
-          matInput
-          placeholder="Flight Status"
+          placeholder="Room Number"
         />
       </mat-form-field>
     </div>
 
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Stays</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.stays"
+          matInput
+          placeholder="Stays"
+          type="number"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Preferences</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.preferences"
+          matInput
+          placeholder="Preferences"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Reviews</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.reviews"
+          matInput
+          placeholder="Reviews"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Payment Info</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.paymentInfo"
+          matInput
+          placeholder="Payment Info"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Reservation Status</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.reservationStatus"
+          matInput
+          placeholder="Reservation Status"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Communication History</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.communicationHistory"
+          matInput
+          placeholder="Communication History"
+        />
+      </mat-form-field>
+    </div>
   </div>
   <div mat-dialog-actions>
     <button [disabled]="loading" mat-button (click)="dialogRef.close();">Cancel</button>
