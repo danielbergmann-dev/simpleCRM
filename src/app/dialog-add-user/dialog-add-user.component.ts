@@ -42,7 +42,6 @@ export class DialogAddUserComponent {
       .add(this.user.toJSON())
       .then((res: any) => {
         this.loading = false;
-        console.log(res);
         this.dialogRef.close(); // close the dialog
       });
   }

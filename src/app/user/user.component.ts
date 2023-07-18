@@ -23,14 +23,13 @@ export class UserComponent implements OnInit {
         this.allUsers = changes.map((change: any) => {
           const data = change.payload.doc.data();
           const id = change.payload.doc.id;
-          console.log('data',data); 
+          console.log('data', data);
           return { id, ...data };
         });
         this.filteredUsers = [...this.allUsers]; // copy array
         console.log('received changes from debugger', this.allUsers);
       });
   }
-  
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
@@ -53,24 +52,11 @@ export class UserComponent implements OnInit {
     if (!this.searchText) {
       return this.allUsers;
     }
-    
-    return this.allUsers.filter((user: { firstName: string; lastName: string; }) =>
-      user.firstName.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      user.lastName.toLowerCase().includes(this.searchText.toLowerCase())
+
+    return this.allUsers.filter(
+      (user: { firstName: string; lastName: string }) =>
+        user.firstName.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        user.lastName.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
-
- /*  deleteUser(userId: string) {
-    this.firestore
-      .collection('users')
-      .doc(userId)
-      .delete()
-      .then(() => {
-        console.log('User successfully deleted!');
-      })
-      .catch((error) => {
-        console.error('Error removing user: ', error);
-      });
-  } */
-  
 }

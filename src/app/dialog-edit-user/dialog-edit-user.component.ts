@@ -11,15 +11,29 @@ import { User } from 'src/models/user.class';
 export class DialogEditUserComponent {
   @Input() user!: User;
   userId!: string;
+  loading = false;
+  checkInDate: Date;
+  checkOutDate: Date;
+  birthDate: Date;
 
   constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>,
-    public firestore: AngularFirestore){}
+    public firestore: AngularFirestore){
+    this.birthDate = new Date();
+    this.checkInDate = new Date();
+    this.checkOutDate = new Date();
+  }
 
   saveUser() {
+    this.user.checkInDate = this.checkInDate.getTime();
+    this.user.checkOutDate = this.checkOutDate.getTime();
+    this.user.birthDate = this.birthDate.getTime();
+    this.loading = true;
+
     this.firestore
     .collection('users')
     .doc(this.userId)
     .update(this.user.toJSON())
+    this.loading = false;
     this.dialogRef.close();
     
     }

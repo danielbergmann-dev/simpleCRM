@@ -1,24 +1,235 @@
 <div class="dialog-container">
-  <h1 mat-dialog-title>Edit adress</h1>
-  <div mat-dialog-content>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <h1 mat-dialog-title>Edit Guest</h1>
+ <div mat-dialog-content>
     <div>
-      <mat-form-field class="mr-16" appearance="outline">
+      <mat-form-field class="mr-16 mt-32" appearance="outline">
         <mat-label>First Name</mat-label>
-        <input [(ngModel)]="user.firstName" matInput placeholder="First Name" />
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.firstName"
+          matInput
+          placeholder="First Name"
+        />
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.lastName"
+          matInput
+          placeholder="Last Name"
+        />
+    
       </mat-form-field>
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input [(ngModel)]="user.lastName" matInput placeholder="Last Name" />
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Birth Date</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="birthDate"
+          matInput
+          placeholder="Birth Date"
+          [matDatepicker]="picker1"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <!-- <mat-hint>Please enter a date</mat-hint> -->
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline" class="full-with">
         <mat-label>E-Mail</mat-label>
-        <input [(ngModel)]="user.email" matInput placeholder="E-Mail" />
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.email"
+          matInput
+          placeholder="E-Mail"
+        />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Phone</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.phone"
+          matInput
+          placeholder="Phone"
+        />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Street + House No.</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.street"
+          matInput
+          placeholder="Adress"
+        />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="mr-16">
+        <mat-label>Zip code</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.zipCode"
+          matInput
+          placeholder="Zip code"
+        />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.city"
+          matInput
+          placeholder="City"
+        />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+
+   
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Check-in Date</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="checkInDate"
+          matInput
+          placeholder="Check-in Date"
+          [matDatepicker]="picker2"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Check-out Date</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="checkOutDate"
+          matInput
+          placeholder="Check-out Date"
+          [matDatepicker]="picker3"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker3"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Room Number</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.roomNumber"
+          matInput
+          placeholder="Room Number"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Stays</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.stays"
+          matInput
+          placeholder="Stays"
+          type="number"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Preferences</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.preferences"
+          matInput
+          placeholder="Preferences"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Reviews</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.reviews"
+          matInput
+          placeholder="Reviews"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Payment Info</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.paymentInfo"
+          matInput
+          placeholder="Payment Info"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Reservation Status</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.reservationStatus"
+          matInput
+          placeholder="Reservation Status"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Communication History</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.communicationHistory"
+          matInput
+          placeholder="Communication History"
+        />
       </mat-form-field>
     </div>
   </div>
