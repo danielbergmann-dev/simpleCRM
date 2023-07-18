@@ -5,6 +5,7 @@ import { User } from 'src/models/user.class';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAdressComponent } from '../dialog-edit-adress/dialog-edit-adress.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,11 +16,13 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 export class UserDetailComponent implements OnInit {
   userId = '';
   user!: User;
+  allUsers: any = [];
 
   constructor(
     private route: ActivatedRoute,
     private firestore: AngularFirestore,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -51,5 +54,19 @@ dialog.componentInstance.userId = this.userId;
    const dialog = this.dialog.open(DialogEditAdressComponent);
    dialog.componentInstance.user = new User (this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
+  }
+
+  deleteUser(userId: string) {
+    this.firestore
+      .collection('users')
+      .doc(this.userId)
+      .delete()
+      .then(() => {
+        console.log('User successfully deleted!');
+        this.router.navigate(['/user']); 
+      })
+      .catch((error) => {
+        console.error('Error removing user: ', error);
+      });
   }
 }

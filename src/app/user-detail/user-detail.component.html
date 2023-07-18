@@ -10,6 +10,7 @@
 
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item (click)="editUserDetail()">Edit</button>
+      <button mat-menu-item (click)="deleteUser(this.allUsers.id)">Delete Guest</button>
     </mat-menu>
 
     <img src="assets\img\profile.svg" />
