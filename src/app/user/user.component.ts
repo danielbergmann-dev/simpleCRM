@@ -15,16 +15,6 @@ export class UserComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
 
-  /* ngOnInit() {
-    this.firestore
-      .collection('users')
-      .valueChanges()
-      .subscribe((changes: any) => {
-        console.log('received changes from debugger', changes);
-        this.allUsers = changes;
-      });
-  } */
-
   ngOnInit() {
     this.firestore
       .collection('users')
@@ -33,6 +23,7 @@ export class UserComponent implements OnInit {
         this.allUsers = changes.map((change: any) => {
           const data = change.payload.doc.data();
           const id = change.payload.doc.id;
+          console.log('data',data); 
           return { id, ...data };
         });
         this.filteredUsers = [...this.allUsers]; // copy array
@@ -69,7 +60,7 @@ export class UserComponent implements OnInit {
     );
   }
 
-  deleteUser(userId: string) {
+ /*  deleteUser(userId: string) {
     this.firestore
       .collection('users')
       .doc(userId)
@@ -80,6 +71,6 @@ export class UserComponent implements OnInit {
       .catch((error) => {
         console.error('Error removing user: ', error);
       });
-  }
+  } */
   
 }

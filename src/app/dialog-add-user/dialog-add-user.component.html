@@ -117,7 +117,7 @@
         <mat-label>Check-in Date</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.checkInDate"
+          [(ngModel)]="checkInDate"
           matInput
           placeholder="Check-in Date"
           [matDatepicker]="picker2"
@@ -126,7 +126,7 @@
           matSuffix
           [for]="picker2"
         ></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
+        <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
     </div>
 
@@ -135,16 +135,16 @@
         <mat-label>Check-out Date</mat-label>
         <input
           [disabled]="loading"
-          [(ngModel)]="user.checkOutDate"
+          [(ngModel)]="checkOutDate"
           matInput
           placeholder="Check-out Date"
-          [matDatepicker]="picker2"
+          [matDatepicker]="picker3"
         />
         <mat-datepicker-toggle
           matSuffix
-          [for]="picker2"
+          [for]="picker3"
         ></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
+        <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
     </div>
 
