@@ -7,7 +7,7 @@
     <button
       (click)="openDialog()"
       class="add-user-btn"
-      mat-mini-fab 
+      mat-mini-fab
       color="primary"
       matTooltip="Add user"
       matTooltipPosition="above"
@@ -15,47 +15,51 @@
       <mat-icon>person_add</mat-icon>
     </button>
 
-<table class="user-table" >
-  <tr>
-    <th>Guest Name</th>
+    <table class="user-table">
+      <tr>
+        <th>
+          Guest Name
+          <button mat-icon-button (click)="toggleSort()">
+            <mat-icon>sort_by_alpha</mat-icon>
+            </button>
+        </th>
 
-    <th>Check-in</th>
-    <th>Check-out</th>
-    <th>Room</th>
-   
-    
-    <th>Reservation status</th>
-   
-    <th></th>
-  </tr>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Room</th>
 
-  <tr *ngFor="let user of filteredUsers" [routerLink]="['/user', user.id]">
+        <th>Reservation status</th>
 
+        <th></th>
+      </tr>
 
-    <td >{{ user.firstName }} {{ user.lastName }} </td>
-   
-    <td>{{ user.checkInDate | date:'dd.MM.yyyy'}}</td>
-    <td>{{ user.checkOutDate | date:'dd.MM.yyyy'}}</td>
-    <td>{{ user.roomNumber }}</td>
-   
-    <td>{{ user.reservationStatus }}</td>
-    
-    <td>
-      <button
-      [routerLink]="['/user', user.id]"
-      mat-icon-button
-      color="black"
-      >
-      <mat-icon>edit_note</mat-icon>
-    </button>
-    
-    <!--   <button
+      <tr *ngFor="let user of filteredUsers" [routerLink]="['/user', user.id]">
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+
+        <td>{{ user.checkInDate | date : "dd.MM.yyyy" }}</td>
+        <td>{{ user.checkOutDate | date : "dd.MM.yyyy" }}</td>
+        <td>{{ user.roomNumber }}</td>
+
+        <td>{{ user.reservationStatus }}</td>
+
+        <td>
+          <button
+            [routerLink]="['/user', user.id]"
+            mat-icon-button
+            color="black"
+          >
+            <mat-icon>edit_note</mat-icon>
+          </button>
+
+          <!--   <button
       (click)="deleteUser(user.id)"
       mat-icon-button
       color="warn"
       >
       <mat-icon>delete</mat-icon>
     </button> -->
-    </td>
-  </tr>
-</table>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content></mat-card
+>

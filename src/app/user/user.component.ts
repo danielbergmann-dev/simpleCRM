@@ -12,6 +12,7 @@ export class UserComponent implements OnInit {
   allUsers: any = [];
   searchText: string = '';
   filteredUsers: any = [];
+  sortAscending: boolean = true;
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
 
@@ -28,7 +29,29 @@ export class UserComponent implements OnInit {
         });
         this.filteredUsers = [...this.allUsers]; // copy array
         console.log('received changes from debugger', this.allUsers);
+        this.sortUsers();
       });
+  }
+
+  toggleSort() {
+    this.sortAscending = !this.sortAscending;
+    this.sortUsers();
+  }
+
+  sortUsers() {
+    this.filteredUsers = [...this.allUsers].sort((a: any, b: any) => {
+      let nameA = a.firstName.toLowerCase() + a.lastName.toLowerCase();
+      let nameB = b.firstName.toLowerCase() + b.lastName.toLowerCase();
+      if (this.sortAscending) {
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+      } else {
+        if (nameA > nameB) return -1;
+        if (nameA < nameB) return 1;
+        return 0;
+      }
+    });
   }
 
   openDialog() {
