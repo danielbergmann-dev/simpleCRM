@@ -47,6 +47,43 @@
 
     <div>
       <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Check-in Date</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="checkInDate"
+          matInput
+          placeholder="Check-in Date"
+          [matDatepicker]="picker2"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
+        <mat-label>Check-out Date</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="checkOutDate"
+          matInput
+          placeholder="Check-out Date"
+          [matDatepicker]="picker3"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker3"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+    </div>
+    
+
+    <div>
+      <mat-form-field appearance="outline" class="full-with">
         <mat-label>E-Mail</mat-label>
         <input
           [disabled]="loading"

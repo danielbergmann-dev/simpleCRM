@@ -1,27 +1,33 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-edit-user',
   templateUrl: './dialog-edit-user.component.html',
   styleUrls: ['./dialog-edit-user.component.scss']
 })
-export class DialogEditUserComponent {
+export class DialogEditUserComponent implements OnInit{
   @Input() user!: User;
   userId!: string;
   loading = false;
-  checkInDate: Date;
-  checkOutDate: Date;
-  birthDate: Date;
+  checkInDate!: Date;
+  checkOutDate!: Date;
+  birthDate!: Date;
 
   constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>,
-    public firestore: AngularFirestore){
-    this.birthDate = new Date();
-    this.checkInDate = new Date();
-    this.checkOutDate = new Date();
+    public firestore: AngularFirestore, private router: Router, private route: ActivatedRoute){
   }
+  
+  ngOnInit() {
+    this.checkInDate = this.user.checkInDate ? new Date(this.user.checkInDate) : new Date();
+    this.checkOutDate = this.user.checkOutDate ? new Date(this.user.checkOutDate) : new Date();
+    this.birthDate = this.user.birthDate ? new Date(this.user.birthDate) : new Date();
+  }
+  
 
   saveUser() {
     this.user.checkInDate = this.checkInDate.getTime();
@@ -35,6 +41,8 @@ export class DialogEditUserComponent {
     .update(this.user.toJSON())
     this.loading = false;
     this.dialogRef.close();
+    this.router.navigate(['/user']); 
+    
     
     }
 }
