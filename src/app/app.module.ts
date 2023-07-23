@@ -17,23 +17,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideStorage,getStorage } from '@angular/fire/storage';
-import { AngularFireModule} from '@angular/fire/compat'
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatCardModule} from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditAdressComponent } from './dialog-edit-adress/dialog-edit-adress.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
+import { ForecastService } from './forecast.service';
 
 @NgModule({
   declarations: [
@@ -45,9 +43,6 @@ import { HttpClientModule } from '@angular/common/http';
     DialogEditAdressComponent,
     DialogEditUserComponent,
     TasksComponent,
-    
-    
-    
   ],
   imports: [
     BrowserModule,
@@ -70,12 +65,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
-    
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
   ],
-  providers: [],
+  providers: [ForecastService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
