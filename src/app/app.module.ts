@@ -32,6 +32,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
 import { TasksComponent } from './tasks/tasks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ForecastService } from './forecast.service';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { ForecastService } from './forecast.service';
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
+    MatListModule,
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),

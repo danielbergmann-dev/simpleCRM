@@ -26,18 +26,22 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card *ngIf="forecastData">
-  <mat-card-header>
-    <mat-card-title>5 Day Forecast</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div *ngFor="let forecast of forecastData">
-      <p>Date: {{ forecast.dt_txt }}</p>
-      <p>Temperature: {{ getTemperatureInCelsius(forecast.main.temp) | number:'1.0-0' }} °C</p>
-      <p>Conditions: {{ forecast.weather[0].description }}</p>
-    </div>
-  </mat-card-content>
-</mat-card>
+<div class="forecast-container" *ngIf="forecastData">
+  <mat-card *ngFor="let forecast of forecastData.slice(0, 3)" class="forecast-card">
+    <mat-card-header>
+      <mat-card-title>{{ forecast.dt_txt | date:'medium' }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Temperatur: {{ getTemperatureInCelsius(forecast.main.temp) | number:'1.0-0' }} °C</mat-list-item>
+        <mat-list-item>Bedingungen: {{ forecast.weather[0].description }}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
 
 
 <!--   <mat-card *ngFor="let user of usersCheckInOut">

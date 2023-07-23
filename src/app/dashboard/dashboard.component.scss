@@ -1,0 +1,11 @@
+.forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .forecast-card {
+    width: 400px;
+    margin: 10px;
+  }
+  

@@ -47,6 +47,8 @@ export class DashboardComponent implements OnInit {
     const cityId = '2950159'; // Replace with your city ID
     this.forecastService.getFiveDayForecast(cityId).subscribe((data) => {
       this.forecastData = data.list;
+      console.log(this.forecastData);
+      
     });
   }
   
