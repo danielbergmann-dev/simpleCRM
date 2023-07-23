@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<mat-card class="min-with">
+    <mat-card-header>
+      <mat-card-title>total guests</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{userCount}}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <div *ngIf="weatherData">
+    <h1>{{ weatherData.name }}</h1>
+    <p>Temperatur: {{ weatherData.main.temp }}</p>
+    <p>Bedingungen: {{ weatherData.weather[0].description }}</p>
+  </div>
+
+<!--   <mat-card *ngFor="let user of usersCheckInOut">
+    <mat-card-header>
+      <mat-card-title>User: {{user.firstName}} {{user.lastName}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Check-In: {{user.checkInDate | date}}</p>
+      <p>Check-Out: {{user.checkOutDate | date}}</p>
+    </mat-card-content>
+  </mat-card> -->
+  
+  
