@@ -14,14 +14,14 @@
   <mat-card-content>
     <div *ngIf="weatherData">
       <h2>{{ weatherData.name }}</h2>
-      <p>
-        Temperatur:
+      <p><span translate>Temperature</span>
+       :
         {{
           getTemperatureInCelsius(weatherData.main.temp) | number : "1.0-0"
         }}
         °C
       </p>
-      <p>Bedingungen: {{ weatherData.weather[0].description }}</p>
+      <p><span translate>Conditions</span>: {{ weatherData.weather[0].description }}</p>
     </div>
   </mat-card-content>
 </mat-card>
@@ -33,8 +33,8 @@
     </mat-card-header>
     <mat-card-content>
       <mat-list>
-        <mat-list-item>Temperatur: {{ getTemperatureInCelsius(forecast.main.temp) | number:'1.0-0' }} °C</mat-list-item>
-        <mat-list-item>Bedingungen: {{ forecast.weather[0].description }}</mat-list-item>
+        <mat-list-item>Temperature: {{ getTemperatureInCelsius(forecast.main.temp) | number:'1.0-0' }} °C</mat-list-item>
+        <mat-list-item>Conditions: {{ forecast.weather[0].description }}</mat-list-item>
       </mat-list>
     </mat-card-content>
   </mat-card>
