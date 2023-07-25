@@ -1,4 +1,5 @@
 {
-    "Temperature": "Temperatur",
-    "Conditions": "Bedingungen"
+	"total guests": "Anzahl Gäste",
+	"Temperature": "Temperatur",
+	"Conditions": "Bedingungen"
 }
