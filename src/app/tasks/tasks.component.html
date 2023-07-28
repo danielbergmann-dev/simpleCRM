@@ -1,1 +1,48 @@
-<p>tasks works!</p>
+<mat-card>
+  <mat-card-content>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput [(ngModel)]="searchText" (input)="filterUsers()" />
+    </mat-form-field>
+    <button
+      (click)="openDialog()"
+      class="add-user-btn"
+      mat-mini-fab
+      color="primary"
+      matTooltip="Add user"
+      matTooltipPosition="above"
+    >
+      <mat-icon>person_add</mat-icon>
+    </button>
+
+    <table class="user-table">
+      <tr>
+        <th>
+          Guest Name
+          <button mat-icon-button (click)="toggleSort()">
+            <mat-icon>sort_by_alpha</mat-icon>
+            </button>
+        </th>
+
+        <th>Preferences</th>
+        <th>Room</th>
+        <th></th>
+      </tr>
+
+      <tr *ngFor="let user of filteredUsers" [routerLink]="['/user-detail-tasks', user.id]">
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.preferences }}</td>
+        <td>{{ user.roomNumber }}</td>
+        <td>
+          <button
+            [routerLink]="['/user-detail-tasks', user.id]"
+            mat-icon-button
+            color="black"
+          >
+            <mat-icon>edit_note</mat-icon>
+        </button>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content></mat-card
+>

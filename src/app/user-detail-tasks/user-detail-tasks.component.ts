@@ -3,16 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/models/user.class';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogEditAdressComponent } from '../dialog-edit-adress/dialog-edit-adress.component';
-import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { DialogEditTasksComponent } from '../dialog-edit-tasks/dialog-edit-tasks.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.scss'],
+  selector: 'app-user-detail-tasks',
+  templateUrl: './user-detail-tasks.component.html',
+  styleUrls: ['./user-detail-tasks.component.scss']
 })
-export class UserDetailComponent implements OnInit {
+export class UserDetailTasksComponent implements OnInit {
   userId = '';
   user!: User;
   allUsers: any = [];
@@ -43,8 +42,8 @@ export class UserDetailComponent implements OnInit {
       });
   }
 
-  editUserDetail() {
-    const dialog = this.dialog.open(DialogEditUserComponent);
+  editUserDetailTasks() {
+    const dialog = this.dialog.open(DialogEditTasksComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
   }

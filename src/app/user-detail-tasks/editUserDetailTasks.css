@@ -1,0 +1,33 @@
+.user-detail-header {
+  height: 250px;
+  background-color: lemonchiffon;
+}
+.user-detail-header mat-card-content {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+}
+.user-detail-header mat-card-content img {
+  width: 64px;
+  height: 64px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.user-details {
+  margin-left: 32px;
+  display: flex;
+  height: 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.user-details h2 {
+  margin-bottom: 0;
+}
+
+.pin-right-upper-corner {
+  position: absolute;
+  top: 12px;
+  right: 6px;
+}/*# sourceMappingURL=user-detail.component.css.map */
