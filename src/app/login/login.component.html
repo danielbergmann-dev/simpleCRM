@@ -11,3 +11,6 @@
 
   <input type="submit" value="Login" [disabled]="!loginForm.valid">
 </form>
+<button (click)="signup()" [disabled]="!loginForm.valid">Register</button>
+<button (click)="guestLogin()">Guest Login</button>
+<div>{{ status }}</div>
