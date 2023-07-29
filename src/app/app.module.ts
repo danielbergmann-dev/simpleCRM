@@ -38,6 +38,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { WeatherComponent } from './weather/weather.component';
 import { UserDetailTasksComponent } from './user-detail-tasks/user-detail-tasks.component';
 import { DialogEditTasksComponent } from './dialog-edit-tasks/dialog-edit-tasks.component';
+import { LoginComponent } from './login/login.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 // AoT requires an exported function for factories
@@ -58,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     WeatherComponent,
     UserDetailTasksComponent,
     DialogEditTasksComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +86,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     HttpClientModule,
     MatListModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       defaultLanguage: 'de',
       loader: {
