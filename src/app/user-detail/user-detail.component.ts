@@ -56,10 +56,19 @@ export class UserDetailComponent implements OnInit {
   } */
 
   deleteUser(userId: string) {
+    // Store the room number before deleting the user
+  const roomNumber = this.user.roomNumber;
+
     this.firestore
       .collection('users')
       .doc(this.userId)
       .delete()
+      .then(() => {
+        // After deleting the user, mark the room as available
+        return this.firestore.collection('rooms').doc(roomNumber).update({
+          available: true
+        });
+      })
       .then(() => {
         console.log('User successfully deleted!');
         this.router.navigate(['/user']);
