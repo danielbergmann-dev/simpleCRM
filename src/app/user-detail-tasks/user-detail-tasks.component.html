@@ -1,24 +1,25 @@
 <mat-card class="user-detail-header" *ngIf="user">
-    <mat-card-content>
-      <button
-        mat-icon-button
-        class="pin-right-upper-corner"
-        [matMenuTriggerFor]="userMenu"
-      >
-        <mat-icon>more_vert</mat-icon>
+  <mat-card-content>
+    <button
+      mat-icon-button
+      class="pin-right-upper-corner"
+      [matMenuTriggerFor]="userMenu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="editUserDetailTasks()">Edit</button>
+      <button mat-menu-item (click)="deleteUser(this.allUsers.id)">
+        Delete Task
       </button>
-  
-      <mat-menu #userMenu="matMenu">
-        <button mat-menu-item (click)="editUserDetailTasks()">Edit</button>
-        <button mat-menu-item (click)="deleteUser(this.allUsers.id)">Delete Guest</button>
-      </mat-menu>
-  
-      <img src="assets\img\profile.svg" />
-      <div class="user-details">
-        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-        <p>{{ user.email }}</p>
-        
-      </div>
-    </mat-card-content>
-  </mat-card>
-  
+    </mat-menu>
+
+    <img src="assets\img\profile.svg" />
+    <div class="user-details">
+      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+      <p>RoomNumber: {{ user.roomNumber }}</p>
+      <p>Preferences: {{ user.preferences }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>
