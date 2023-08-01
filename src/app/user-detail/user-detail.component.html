@@ -15,8 +15,18 @@
 
     <img src="assets\img\profile.svg" />
     <div class="user-details">
-      <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-      <p>{{ user.email }}</p>
+      <h2>Guest Name: {{ user.firstName }} {{ user.lastName }}</h2>
+      <p></p>
+      <p>Email: {{ user.email }}</p>
+      <p>Phone: {{user.phone}}</p>
+      <p>Check-in: {{user.checkInDate | date : "dd.MM.yyyy"}}</p>
+      <p>Check-out: {{user.checkOutDate | date : "dd.MM.yyyy"}}</p>
+      <p>BirthDate: {{user.birthDate | date : "dd.MM.yyyy"}}</p>
+      <p>RoomNumber: {{user.roomNumber}}</p>
+      <p>Preferences: {{user.preferences}}</p>
+      <p>PaymentInfo: {{user.paymentInfo}}</p>
+      <p>Communication History: {{user.communicationHistory}}</p>
+
       
     </div>
   </mat-card-content>
